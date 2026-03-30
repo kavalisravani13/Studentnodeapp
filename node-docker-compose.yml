@@ -1,12 +1,10 @@
-version: "3.0"
-services:
-  myweb:
-    image: node:14
-    build: .
+version: '3.9'
 
-    container_name: nodecons
-    restart: always
+services:
+  studentapp:
+    build: .
     ports:
-      - "2000:8000"
-    expose:
-      - "2000"
+      - "8081:8000"   # Host 8081 → Container 8000
+    volumes:
+      - .:/app        # Optional: allows live code changes without rebuilding
+    restart: unless-stopped
