@@ -1,8 +1,8 @@
-FROM node:14
+# Dockerfile
+FROM node:18
 WORKDIR /app
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
-RUN npm install express
-COPY . /app
+COPY . .
 EXPOSE 8000
 CMD ["node", "studregnode.js"]
